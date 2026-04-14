@@ -1,7 +1,18 @@
+# Step 1: Build React app
+FROM node:18 as build
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npm run build
+
+# Step 2: Serve with nginx
 FROM nginx:alpine
 
-COPY dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "nginx -g 'daemon off;' -c /etc/nginx/nginx.conf"]
+CMD ["nginx", "-g", "daemon off;"]
