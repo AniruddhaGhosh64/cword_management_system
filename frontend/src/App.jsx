@@ -21,7 +21,7 @@ function App() {
   const [status, setStatus] = useState("Checking API...");
   const [lastUpdated, setLastUpdated] = useState(Date.now());
   const [timeAgo, setTimeAgo] = useState(0);
-  
+
   const [crowdData, setCrowdData] = useState([]);
   const [routes, setRoutes] = useState([]);
   const [queues, setQueues] = useState([]);
@@ -30,25 +30,31 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const [statusRes, crowdRes, routeRes, queueRes, alertsRes, insightsRes] = await Promise.all([
-        fetch(`${BASE_URL}/api`),
-        fetch(`${BASE_URL}/api/crowd/`),
-        fetch(`${BASE_URL}/api/routing/`),
-        fetch(`${BASE_URL}/api/queues/`),
-        fetch(`${BASE_URL}/api/alerts/`),
-        fetch(`${BASE_URL}/api/insights/`)
-      ]);
-      
+      // ✅ HEALTH CHECK
+      const statusRes = await fetch(`${BASE_URL}/`);
       const st = await statusRes.json();
       setStatus(st.message || "API Running");
-      
+
+      // ✅ OTHER CALLS (separate, safer)
+      const crowdRes = await fetch(`${BASE_URL}/api/crowd/`);
       setCrowdData(await crowdRes.json());
+
+      const routeRes = await fetch(`${BASE_URL}/api/routing/`);
       setRoutes(await routeRes.json());
+
+      const queueRes = await fetch(`${BASE_URL}/api/queues/`);
       setQueues(await queueRes.json());
+
+      const alertsRes = await fetch(`${BASE_URL}/api/alerts/`);
       setAlerts(await alertsRes.json());
+
+      const insightsRes = await fetch(`${BASE_URL}/api/insights/`);
       setInsights(await insightsRes.json());
+
       setLastUpdated(Date.now());
+
     } catch (err) {
+      console.error(err);
       setStatus("API is unreachable");
     }
   };
@@ -77,18 +83,18 @@ function App() {
           Backend Status: <span style={{ color: status.includes("unreachable") ? "#ef4444" : "#22c55e" }}>{status}</span>
         </p>
         <p className="status" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-          <span className="live-indicator"></span> 
+          <span className="live-indicator"></span>
           <span>Live • Last updated: {timeAgo} seconds ago</span>
         </p>
       </header>
-      
+
       <main className="dashboard">
         <div className="top-row">
           <InsightsPanel insights={insights} />
           <Heatmap crowdData={crowdData} />
           <RouteDisplay routes={routes} />
         </div>
-        
+
         <div className="bottom-row">
           <QueuePanel queues={queues} />
           <AlertsPanel alerts={alerts} />
