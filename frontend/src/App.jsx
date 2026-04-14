@@ -8,6 +8,7 @@ import JourneySimulation from './components/JourneySimulation';
 import InsightsPanel from './components/InsightsPanel';
 import WhatIfSimulation from './components/WhatIfSimulation';
 import ThemeToggle from './components/ThemeToggle';
+import { BASE_URL } from './config';
 import './App.css';
 
 function App() {
@@ -30,12 +31,12 @@ function App() {
   const fetchData = async () => {
     try {
       const [statusRes, crowdRes, routeRes, queueRes, alertsRes, insightsRes] = await Promise.all([
-        fetch('http://localhost:8000/'),
-        fetch('http://localhost:8000/api/crowd/'),
-        fetch('http://localhost:8000/api/routing/'),
-        fetch('http://localhost:8000/api/queues/'),
-        fetch('http://localhost:8000/api/alerts/'),
-        fetch('http://localhost:8000/api/insights/')
+        fetch(`${BASE_URL}/`),
+        fetch(`${BASE_URL}/api/crowd/`),
+        fetch(`${BASE_URL}/api/routing/`),
+        fetch(`${BASE_URL}/api/queues/`),
+        fetch(`${BASE_URL}/api/alerts/`),
+        fetch(`${BASE_URL}/api/insights/`)
       ]);
       
       const st = await statusRes.json();

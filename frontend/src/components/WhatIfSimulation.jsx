@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BASE_URL } from '../config';
 
 const ZONES = ['A1', 'B2', 'C3', 'D4'];
 
@@ -11,7 +12,7 @@ export default function WhatIfSimulation({ crowdData, refreshData }) {
     const applySpike = async () => {
         setLoading(true);
         try {
-            await fetch('http://localhost:8000/api/admin/simulate-spike', {
+            await fetch(`${BASE_URL}/api/admin/simulate-spike`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ zone: selectedZone, density })
@@ -24,7 +25,7 @@ export default function WhatIfSimulation({ crowdData, refreshData }) {
     };
 
     const resetSpike = async (zone) => {
-        await fetch('http://localhost:8000/api/admin/reset-spike', {
+        await fetch(`${BASE_URL}/api/admin/reset-spike`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ zone, status: 'open' })
@@ -38,7 +39,7 @@ export default function WhatIfSimulation({ crowdData, refreshData }) {
     };
 
     const resetAll = async () => {
-        await fetch('http://localhost:8000/api/admin/reset-all-spikes', { method: 'POST' });
+        await fetch(`${BASE_URL}/api/admin/reset-all-spikes`, { method: 'POST' });
         setActiveSpikes({});
         refreshData();
     };

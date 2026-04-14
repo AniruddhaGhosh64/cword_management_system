@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BASE_URL } from '../config';
 
 export default function AdminPanel({ crowdData, refreshData }) {
     const [loading, setLoading] = useState(null);
@@ -14,7 +15,7 @@ export default function AdminPanel({ crowdData, refreshData }) {
         const newStatus = currentStatus === 'open' ? 'closed' : 'open';
         
         try {
-            await fetch('http://localhost:8000/api/admin/toggle-zone', {
+            await fetch(`${BASE_URL}/api/admin/toggle-zone`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ zone, status: newStatus })
