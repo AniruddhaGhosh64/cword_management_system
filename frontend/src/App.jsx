@@ -31,7 +31,7 @@ function App() {
   const fetchData = async () => {
     try {
       const [statusRes, crowdRes, routeRes, queueRes, alertsRes, insightsRes] = await Promise.all([
-        fetch(`${BASE_URL}/`),
+        fetch(`${BASE_URL}/api`),
         fetch(`${BASE_URL}/api/crowd/`),
         fetch(`${BASE_URL}/api/routing/`),
         fetch(`${BASE_URL}/api/queues/`),
