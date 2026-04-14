@@ -164,6 +164,11 @@ It provides:
 
 ---
 
+## 🌐 Live Demo
+
+- 🔗 Frontend: [https://your-frontend-url](https://stadium-frontend-910282726941.asia-south1.run.app/)
+- 🔗 Backend API Docs: [https://your-backend-url/docs](https://stadium-backend-910282726941.asia-south1.run.app/docs)
+
 ## 🚀 Future Scope
 
 - 🔌 Integration with real-world sensors (IoT, CCTV, entry gates)  
