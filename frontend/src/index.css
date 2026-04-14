@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ============================================================
+   THEME VARIABLES — calm, minimal, Google Material-inspired
+   dark = :root (default)   |   light = html.light
+   ============================================================ */
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+
+  /* Backgrounds — flat dark, subtle elevation contrast */
+  --bg-root:        #111827;
+  --bg-root-grad:   linear-gradient(180deg, #1a2234 0%, #111827 100%);
+  --bg-card:        rgba(26, 32, 44, 0.92);
+  --bg-item:        rgba(17, 24, 36, 0.75);
+  --bg-item-hover:  rgba(22, 30, 46, 0.9);
+  --bg-status:      rgba(26, 32, 44, 0.7);
+  --bg-insight:     rgba(17, 24, 36, 0.75);
+
+  /* Text */
+  --text-primary:   #e8eaed;
+  --text-secondary: #bdc1c6;
+  --text-muted:     #9aa0a6;
+  --text-dim:       #5f6368;
+
+  /* Borders — more subtle */
+  --border:         rgba(255, 255, 255, 0.07);
+  --border-status:  rgba(255, 255, 255, 0.04);
+  --border-hover:   rgba(138, 180, 248, 0.35);
+
+  /* Accent — muted Google palette */
+  --accent-blue:    #8ab4f8;
+  --accent-indigo:  #a8b4fb;
+  --accent-red:     #f28b82;
+  --accent-green:   #81c995;
+  --accent-yellow:  #fbbc04;
+
+  /* Shadows — soft, not dramatic */
+  --shadow:         0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-hover:   0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-glow:    none;
+
+  /* Misc */
+  --backdrop:       blur(10px);
+  --radius-card:    16px;
+  --radius-item:    12px;
+
+  --theme-transition: background 0.3s ease, background-color 0.3s ease,
+                      color 0.3s ease, border-color 0.3s ease,
+                      box-shadow 0.3s ease;
+}
+
+/* Light Mode */
+html.light {
+  color-scheme: light;
+
+  --bg-root:        #f8f9fa;
+  --bg-root-grad:   linear-gradient(180deg, #f0f4f9 0%, #f8f9fa 100%);
+  --bg-card:        rgba(255, 255, 255, 0.92);
+  --bg-item:        rgba(241, 243, 244, 0.9);
+  --bg-item-hover:  rgba(232, 234, 237, 0.95);
+  --bg-status:      rgba(255, 255, 255, 0.8);
+  --bg-insight:     rgba(241, 243, 244, 0.9);
+
+  --text-primary:   #202124;
+  --text-secondary: #3c4043;
+  --text-muted:     #5f6368;
+  --text-dim:       #9aa0a6;
+
+  --border:         rgba(0, 0, 0, 0.08);
+  --border-status:  rgba(0, 0, 0, 0.05);
+  --border-hover:   rgba(138, 180, 248, 0.6);
+
+  --accent-blue:    #1a73e8;
+  --accent-indigo:  #5f6ac4;
+  --accent-red:     #d93025;
+  --accent-green:   #188038;
+  --accent-yellow:  #f29900;
+
+  --shadow:         0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-hover:   0 4px 10px rgba(0, 0, 0, 0.12);
+  --shadow-glow:    none;
+
+  --backdrop:       blur(8px);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-root-grad);
+  color: var(--text-secondary);
+  transition: var(--theme-transition);
+}
