@@ -1,9 +1,7 @@
-FROM python:3.11
+FROM nginx:alpine
 
-WORKDIR /app
+COPY dist /usr/share/nginx/html
 
-COPY . .
+EXPOSE 8080
 
-RUN pip install -r requirements.txt
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["nginx", "-g", "daemon off;"]
