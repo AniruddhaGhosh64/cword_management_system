@@ -4,10 +4,10 @@ from app.routes import crowd, routing, queues, alerts, admin, insights
 
 app = FastAPI(title="Smart Stadium Crowd Management System")
 
-# Configure CORS for production and local development
+# Configure CORS for Cloud Run deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Allow all origins for production flexibility
+    allow_origins=["*"],  # allow all for now (demo/hackathon)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
