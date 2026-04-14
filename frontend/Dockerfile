@@ -4,4 +4,4 @@ COPY dist /usr/share/nginx/html
 
 EXPOSE 8080
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["sh", "-c", "nginx -g 'daemon off;' -c /etc/nginx/nginx.conf"]
