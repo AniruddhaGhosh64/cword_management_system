@@ -172,13 +172,16 @@ It provides:
 ## 📸 Screenshots
 
 ### 🏠 System Overview (Analytics + Heatmap + Routing)
-![Dashboard](./assets/dashboard.png)
+![Dashboard](./assets/Dashboard.png)
 
 ### ⚙️ Operations (Queues + Alerts + Admin Controls)
-![Operations](./assets/operations.png)
+![Operations](./assets/Operations.png)
 
 ### ⚡ Simulation & Real-Time Adaptation
-![Simulation](./assets/simulation.png)
+![Simulation](./assets/Simulation.png)
+
+## 🎥 Demo Video
+[Watch Demo Video](https://www.youtube.com/watch?v=ZQrjai2ReIY)
 
 ## 🧩 Architecture
 User (Browser - React App)
