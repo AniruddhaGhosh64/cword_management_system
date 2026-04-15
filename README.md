@@ -169,6 +169,42 @@ It provides:
 - 🔗 Frontend: [Frontend URL](https://stadium-frontend-910282726941.asia-south1.run.app/)
 - 🔗 Backend API Docs: [Backend URL/docs](https://stadium-backend-910282726941.asia-south1.run.app/docs)
 
+## 📸 Screenshots
+
+### 🏠 System Overview (Analytics + Heatmap + Routing)
+![Dashboard](./assets/dashboard.png)
+
+### ⚙️ Operations (Queues + Alerts + Admin Controls)
+![Operations](./assets/operations.png)
+
+### ⚡ Simulation & Real-Time Adaptation
+![Simulation](./assets/simulation.png)
+
+## 🧩 Architecture
+User (Browser - React App)
+        │
+        ▼
+Frontend (React + Vite)
+        │
+        ▼
+Backend (FastAPI)
+ ├── Crowd Service
+ ├── Routing Engine
+ ├── Queue Service
+ ├── Alert Engine
+ ├── Admin Controller
+ └── Insights Engine
+
+        │
+        ▼
+In-Memory Data Layer
+
+        │
+        ▼
+Deployment
+ ├── Frontend → Cloud Run (Nginx)
+ └── Backend → Cloud Run (Uvicorn)
+
 ## 🚀 Future Scope
 
 - 🔌 Integration with real-world sensors (IoT, CCTV, entry gates)  
