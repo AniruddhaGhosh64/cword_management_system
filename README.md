@@ -178,7 +178,7 @@ It provides:
 ![Operations](./assets/Operations.png)
 
 ### ⚡ Simulation & Real-Time Adaptation
-![Simulation](./assets/Simulation.png)
+![Simulation](./assets/Simulations.png)
 
 ## 🎥 Demo Video
 [Watch Demo Video](https://www.youtube.com/watch?v=ZQrjai2ReIY)
