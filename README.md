@@ -181,9 +181,12 @@ It provides:
 ![Simulation](./assets/Simulations.png)
 
 ## 🎥 Demo Video
-[Watch Demo Video](https://www.youtube.com/watch?v=ZQrjai2ReIY)
+
+[![Watch the demo](https://img.youtube.com/vi/ZQrjai2ReIY/0.jpg)](https://www.youtube.com/watch?v=ZQrjai2ReIY)
 
 ## 🧩 Architecture
+
+```
 User (Browser - React App)
         │
         ▼
@@ -191,22 +194,23 @@ Frontend (React + Vite)
         │
         ▼
 Backend (FastAPI)
- ├── Crowd Service
- ├── Routing Engine
- ├── Queue Service
- ├── Alert Engine
- ├── Admin Controller
- └── Insights Engine
+ ├── Crowd Service (simulation + prediction)
+ ├── Routing Engine (graph + congestion weights)
+ ├── Queue Service (wait time + recommendations)
+ ├── Alert Engine (rule-based decisions)
+ ├── Admin Controller (zone control + simulation)
+ └── Insights Engine (analytics)
 
         │
         ▼
-In-Memory Data Layer
+In-Memory Data Layer (real-time state)
 
         │
         ▼
-Deployment
+Deployment Layer
  ├── Frontend → Cloud Run (Nginx)
  └── Backend → Cloud Run (Uvicorn)
+```
 
 ## 🚀 Future Scope
 
